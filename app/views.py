@@ -3,7 +3,7 @@ from flask_login import login_user, logout_user, current_user, login_required
 from app import app, db, lm, oid
 from .forms import LoginForm
 from .models import User
-
+from datetime import datetime
 
 @lm.user_loader
 def load_user(id):
@@ -77,3 +77,11 @@ def after_login(resp):
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.before_request
+def before_request():
+    g.user = current_user
+    if g.user.is_authenticated:
+        g.user.last_seen = datetime.utcnow()
+        db.session.add(g.user)
+        db.session.commit()
