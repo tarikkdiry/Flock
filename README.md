@@ -6,7 +6,7 @@ Where ducks meet. Not a dating site, creep.
 Before:
 
 <p align="center">
-  <img src="before_front_page.png" width="350"/>
+  <img src="before_front_page.png" width="50%"/>
 </p>
 
 
