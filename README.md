@@ -1,7 +1,7 @@
 Flock
 =========
 
-Where ducks meet. Not a dating site, creep.
+Where ducks meet. Not a dating site. I promise.
 
 Before:
 
