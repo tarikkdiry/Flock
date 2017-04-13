@@ -20,7 +20,7 @@ class TestCase(unittest.TestCase):
 
     def test_avatar(self):
         # create a user
-        u = User(nickname='john', email='john@example.com')
+        u = User(nickname='john', email='john@stevens.com')
         avatar = u.avatar(128)
         expected = 'http://www.gravatar.com/avatar/' + \
             'd4c74594d841139328695756648b6bd6'
@@ -28,13 +28,13 @@ class TestCase(unittest.TestCase):
 
     def test_make_unique_nickname(self):
         # create a user and write it to the database
-        u = User(nickname='john', email='john@example.com')
+        u = User(nickname='john', email='john@stevens.com')
         db.session.add(u)
         db.session.commit()
         nickname = User.make_unique_nickname('john')
         assert nickname != 'john'
         # make another user with the new nickname
-        u = User(nickname=nickname, email='susan@example.com')
+        u = User(nickname=nickname, email='susan@stevens.com')
         db.session.add(u)
         db.session.commit()
         nickname2 = User.make_unique_nickname('john')

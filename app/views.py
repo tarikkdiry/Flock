@@ -23,11 +23,11 @@ def index():
     posts = [
         {
             'author': {'nickname': 'Tarik'},
-            'body': 'Jimmy is a bitch'
+            'body': ''
         },
         {
             'author': {'nickname': 'Oscar'},
-            'body': 'Jimmy is a bitch'
+            'body': ''
         }
     ]
     return render_template('index.html',
