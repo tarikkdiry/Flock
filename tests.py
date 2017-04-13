@@ -28,13 +28,13 @@ class TestCase(unittest.TestCase):
 
     def test_make_unique_nickname(self):
         # create a user and write it to the database
-        u = User(nickname='john', email='john@stevens.com')
+        u = User(nickname='john', email='tkdiry@stevens.com')
         db.session.add(u)
         db.session.commit()
         nickname = User.make_unique_nickname('john')
         assert nickname != 'john'
         # make another user with the new nickname
-        u = User(nickname=nickname, email='susan@stevens.com')
+        u = User(nickname=nickname, email='otavara@stevens.com')
         db.session.add(u)
         db.session.commit()
         nickname2 = User.make_unique_nickname('john')
