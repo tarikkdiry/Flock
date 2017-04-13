@@ -13,6 +13,6 @@ Before:
 
 After:
 
-<p align="center">
-  <img src="under_construction.svg" width="350"/>
-</p>
+<a href="https://olivermak.es/">
+  <img src="under_construction.svg" width="100%" height="144">
+</a>
