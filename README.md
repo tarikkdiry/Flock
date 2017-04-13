@@ -14,5 +14,5 @@ Before:
 After:
 
 <p align="center">
-  <img src="Under_Construction_Warning_Sign_PNG_Clipart-839.png" width="100%">
+  <img src="Under_Construction_Warning_Sign_PNG_Clipart-839.png" width="50%">
 </p>
