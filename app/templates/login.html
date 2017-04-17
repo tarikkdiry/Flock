@@ -25,9 +25,9 @@ function set_openid(openid, pr)
         {% for error in form.openid.errors %}
           <span style="color: red;">[{{error}}]</span>
         {% endfor %}<br>
-        <!-- |{% for pr in providers %}
+        |{% for pr in providers %}
           <a href="javascript:set_openid('{{ pr.url }}', '{{ pr.name }}');">{{ pr.name }}</a> |
-        {% endfor %} -->
+        {% endfor %}
     </p>
     <p>{{ form.remember_me }} Remember Me</p>
     <p><input type="submit" value="Sign In"></p>
