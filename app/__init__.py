@@ -39,3 +39,5 @@ if not app.debug:
     app.logger.info('microblog startup')
 
 from app import views, models
+from flask_mail import Mail
+mail = Mail(app)
