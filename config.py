@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -31,3 +33,9 @@ POSTS_PER_PAGE = 5
 
 # For search results
 MAX_SEARCH_RESULTS = 50
+
+# languages offered
+LANGUAGES = {
+    'en': 'English',
+    'es': 'Español'
+}

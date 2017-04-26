@@ -1,4 +1,5 @@
 from hashlib import md5
+import re
 from app import db
 from app import app
 
@@ -42,6 +43,10 @@ class User(db.Model):
                 break
             version += 1
         return new_nickname
+
+    @staticmethod
+    def make_valid_nickname(nickname):
+        return re.sub('[^a-zA-Z0-9_\.]', '', nickname)
 
     @property
     def is_authenticated(self):
