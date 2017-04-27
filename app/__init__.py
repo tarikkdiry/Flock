@@ -43,7 +43,7 @@ if not app.debug:
         credentials = (MAIL_USERNAME, MAIL_PASSWORD)
     mail_handler = SMTPHandler((MAIL_SERVER, MAIL_PORT),
                                'no-reply@' + MAIL_SERVER, ADMINS,
-                               'microblog failure', credentials)
+                               'Flock failure', credentials)
     mail_handler.setLevel(logging.ERROR)
     app.logger.addHandler(mail_handler)
 

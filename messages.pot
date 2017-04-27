@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-04-25 23:41-0400\n"
+"POT-Creation-Date: 2017-04-26 23:17-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,14 +17,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.4.0\n"
 
-#: app/__init__.py:21
-msgid "Please log in to access this page."
-msgstr ""
-
 #: app/forms.py:26
 msgid ""
 "This nickname has invalid characters. Please use letters, numbers, dots "
 "and underscores only."
+msgstr ""
+
+#: app/forms.py:30
+msgid "This nickname is already in use. Please choose another one."
 msgstr ""
 
 #: app/views.py:57
@@ -86,6 +86,19 @@ msgstr ""
 
 #: app/templates/base.html:38
 msgid "Search"
+msgstr ""
+
+#: app/templates/follower_email.html:2
+#, python-format
+msgid "%(nickname)s is now a follower."
+msgstr ""
+
+#: app/templates/follower_email.html:12
+msgid "Regards,"
+msgstr ""
+
+#: app/templates/follower_email.html:13
+msgid "The <code>Flock</code> admin"
 msgstr ""
 
 #: app/templates/post.html:6
