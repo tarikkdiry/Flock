@@ -6,6 +6,9 @@
             <p>{{ _('%(nickname)s said %(when)s:', nickname='<a href="%s">%s</a>' % (url_for('user', nickname=post.author.nickname), post.author.nickname), when=momentjs(post.timestamp).fromNow()) }}</p>
             {% endautoescape %}
             <p><strong>{{ post.body }}</strong></p>
+            {% if post.author.id == g.user.id %}
+              <div><a href="{{ url_for('delete', id=post.id) }}">{{ _('Delete') }}</a></div>
+            {% endif %}
         </td>
     </tr>
 </table>
