@@ -24,7 +24,7 @@
             <div class="help-block">{{ _('Click below to login with myStevens.') }}</div>
             <div class="control-group">
                 {% for pr in providers %}
-                <a href="javascript:set_openid('{{ pr.url }}', '{{ pr.name }}');"><img src="/static/img/mystevens.png" class="img-polaroid" style="margin:2px;" /></a>
+                <a href="javascript:set_openid('{{ pr.url }}', '{{ pr.name }}');"><img src="/static/img/stevens.png" class="img-polaroid" style="margin:2px;" /></a>
                 {% endfor %}
             </div>
             <div class="control-group{% if form.openid.errors %} error{% endif %}">
