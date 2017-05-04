@@ -76,7 +76,7 @@ class TestCase(unittest.TestCase):
         db.session.add(u2)
         db.session.add(u3)
         db.session.add(u4)
-        # make four posts
+        # make sample posts
         utcnow = datetime.utcnow()
         p1 = Post(body="post from john", author=u1, timestamp=utcnow + timedelta(seconds=1))
         p2 = Post(body="post from susan", author=u2, timestamp=utcnow + timedelta(seconds=2))
