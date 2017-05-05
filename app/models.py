@@ -49,33 +49,39 @@ class User(db.Model):
         return re.sub('[^a-zA-Z0-9_\.]', '', nickname)
 
     @property
+    # For later use when blocking non-Stevens users
     def is_authenticated(self):
         return True
 
     @property
     def is_active(self):
+    # To determine whether a user is inactive or banned.
         return True
 
     @property
     def is_anonymous(self):
+    # For security reasons at a later update
         return False
 
     def get_id(self):
+    # Determines is name is unique. Users cannot have the same username.
         try:
-            return unicode(self.id)  # python 2
+            return unicode(self.id)
         except NameError:
-            return str(self.id)  # python 3
+            return str(self.id)
 
     def avatar(self, size):
         return 'http://www.gravatar.com/avatar/%s?d=mm&s=%d' % \
             (md5(self.email.encode('utf-8')).hexdigest(), size)
 
     def follow(self, user):
+        # If self isn't related to user, make them related. One to many.
         if not self.is_following(user):
             self.followed.append(user)
             return self
 
     def unfollow(self, user):
+        # If self is related to user, make them related. One to many.
         if self.is_following(user):
             self.followed.remove(user)
             return self
@@ -85,6 +91,8 @@ class User(db.Model):
             followers.c.followed_id == user.id).count() > 0
 
     def followed_posts(self):
+        # Pulls all posts from followed_id's in order by time descending.
+        # match followed_id of table: followers to user_id of Post table
         return Post.query.join(
             followers, (followers.c.followed_id == Post.user_id)).filter(
                 followers.c.follower_id == self.id).order_by(
@@ -104,7 +112,5 @@ class Post(db.Model):
     def __repr__(self):
         return '<Post %r>' % (self.body)
 
-# COME BACK TO THIS
-# ONLY FINDING 'HELLO'
 if enable_search:
     whooshalchemy.whoosh_index(app, Post)

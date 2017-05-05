@@ -16,12 +16,15 @@ def load_user(id):
 
 
 @babel.localeselector
+# Accepts language from Browser's preferred language at the time
+# Ideally would change the language based on the language the browser is currently using
 def get_locale():
     return request.accept_languages.best_match(LANGUAGES.keys())
 
 
 @app.before_request
 def before_request():
+    # Gathers data about user
     g.user = current_user
     if g.user.is_authenticated:
         g.user.last_seen = datetime.utcnow()
@@ -55,7 +58,7 @@ def index(page=1):
         db.session.commit()
         flash(gettext('Your post is now live!'))
         return redirect(url_for('index'))
-    posts = g.user.followed_posts().paginate(page, POSTS_PER_PAGE, False)
+    posts = g.user.followed_posts().paginate(page, POSTS_PER_PAGE, False) # Control posts per page displayed
     return render_template('index.html',
                            title='Home',
                            form=form,
@@ -65,8 +68,9 @@ def index(page=1):
 @app.route('/login', methods=['GET', 'POST'])
 @oid.loginhandler
 def login():
+    # Stores logged in user and session
     if g.user is not None and g.user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('index')) # Flask creates urls
     form = LoginForm()
     if form.validate_on_submit():
         session['remember_me'] = form.remember_me.data
@@ -113,6 +117,7 @@ def logout():
 @app.route('/user/<nickname>/<int:page>')
 @login_required
 def user(nickname, page=1):
+    # Identifies and confirms/denies user
     user = User.query.filter_by(nickname=nickname).first()
     if user is None:
         flash(gettext('User %(nickname)s not found.', nickname=nickname))
